@@ -11,8 +11,13 @@ from .models import *
 
 @api_view(['GET'])
 def apibase(request):
-
-    return Response(status= status.HTTP_200_OK)
+    data = {'register' : '/user/register',
+            'login':'/user/login',
+            'create a advisor' : '/advisor (Only admin can create)',
+            'book a call' : 'user/<userid>/advisor/<advid>',
+            'finding your bookings' : 'user/<userid>/advisor/booking',
+            'get advisors list': 'user/<userid>/advisor'}
+    return Response(data,status= status.HTTP_200_OK)
 
 
 @api_view(['POST'])
